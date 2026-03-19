@@ -24,6 +24,7 @@ export default function EmailForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setState("loading");
     if (!email) return;
     fetch(WORKER_URL, {
       method: "POST",
