@@ -7,6 +7,12 @@ interface EmailFormProps {
   centered?: boolean;
 }
 
+const emailData = {
+  email: "user@example.com",
+  subject: "Newsletter signup",
+  timestamp: new Date().toISOString(),
+};
+
 export default function EmailForm({
   note = "1,200+ people already waiting",
   centered = false,
@@ -19,25 +25,11 @@ export default function EmailForm({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
-
-    setState("loading");
-
-    try {
-      const response = await fetch(WORKER_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      if (response.ok) {
-        setState("success");
-      } else {
-        setState("error");
-      }
-    } catch (error) {
-      setState("error");
-      console.log(error);
-    }
+    fetch(WORKER_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(emailData),
+    });
   };
 
   return (
