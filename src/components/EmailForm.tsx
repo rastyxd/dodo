@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-
-const WORKER_URL = "https://dodo-email-collector.dodo.workers.dev";
+const WORKER_URL = "https://dodo.workers.dev";
 
 interface EmailFormProps {
   note?: string;
@@ -22,17 +21,22 @@ export default function EmailForm({
     if (!email) return;
 
     setState("loading");
+
     try {
-      const res = await fetch(WORKER_URL, {
+      const response = await fetch(WORKER_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
 
-      if (!res.ok) throw new Error("Failed");
-      setState("success");
-    } catch {
+      if (response.ok) {
+        setState("success");
+      } else {
+        setState("error");
+      }
+    } catch (error) {
       setState("error");
+      console.log(error);
     }
   };
 
