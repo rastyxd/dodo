@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 
-const WORKER_URL = "https://dodo-email-collector.<your-subdomain>.workers.dev";
+const WORKER_URL = "https://dodo-email-collector.dodo.workers.dev";
 
 interface EmailFormProps {
   note?: string;
