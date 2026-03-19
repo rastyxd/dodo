@@ -1,8 +1,0 @@
-{
-  "r2_buckets": [
-    {
-      "binding": "EMAIL_BUCKET", // <~ valid JavaScript variable name
-      "bucket_name": "dodo-emails",
-    },
-  ],
-}

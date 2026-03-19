@@ -1,0 +1,7 @@
+name = "dodo-email-collector"
+main = "index.ts"
+compatibility_date = "2024-01-01"
+
+[[r2_buckets]]
+binding = "EMAIL_BUCKET"
+bucket_name = "dodo-emails"

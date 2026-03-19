@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
-const WORKER_URL = "https://dodo.workers.dev";
+const WORKER_URL = "https://dodo-email-collector.rastyxdofficial.workers.dev";
 
 interface EmailFormProps {
   note?: string;
@@ -24,7 +24,7 @@ export default function EmailForm({
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setState("loading");
+    setState("success");
     if (!email) return;
     fetch(WORKER_URL, {
       method: "POST",
