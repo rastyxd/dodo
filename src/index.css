@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400;1,700&family=Syne:wght@400;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-d-bg:             #FFFBF5;
+  --color-d-ink:            #1A1714;
+  --color-d-ink-mid:        #6B6560;
+  --color-d-ink-soft:       #B5AFA8;
+  --color-d-yellow:         #FFD94A;
+  --color-d-yellow-dark:    #E8C200;
+  --color-d-yellow-light:   #FFF8D6;
+  --color-d-peach:          #FFB38A;
+  --color-d-peach-light:    #FFF0E6;
+  --color-d-mint:           #7DDBB4;
+  --color-d-mint-light:     #E8FAF3;
+  --color-d-lavender:       #C4B5FD;
+  --color-d-lavender-light: #F3F0FF;
+}
+
+:root {
+  --bg:             #FFFBF5;
+  --ink:            #1A1714;
+  --yellow:         #FFD94A;
+  --yellow-dark:    #E8C200;
+  --yellow-light:   #FFF8D6;
+  --peach:          #FFB38A;
+  --mint:           #7DDBB4;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+.h1-accent {
+  color: var(--yellow-dark);
+  position: relative;
+  display: inline-block;
+}
+.h1-accent::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 4px;
+  z-index: -1;
+  transform-origin: left;
+}
+
+.phone-card:nth-child(4) { opacity: 0.45; }
+
+.check-done::after {
+  content: '';
+  width: 8px;
+  height: 5px;
+  border-left: 2px solid white;
+  border-bottom: 2px solid white;
+  transform: rotate(-45deg) translateY(-1px);
+  display: block;
+}
