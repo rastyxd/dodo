@@ -1,5 +1,5 @@
 export interface Env {
-  EMAIL_BUCKET: R2Bucket;
+  DB: D1Database;
 }
 
 const corsHeaders = {
@@ -31,16 +31,19 @@ export default {
         });
       }
 
-      const key = `emails/${email}-${crypto.randomUUID()}.json`;
-
-      await env.EMAIL_BUCKET.put(
-        key,
-        JSON.stringify({
-          email,
-          submittedAt: new Date().toISOString(),
-          source: request.headers.get("referer") ?? "unknown",
-        }),
-      );
+      // Insert — ignore silently if email already exists
+      await env.DB.prepare(
+        `
+        INSERT OR IGNORE INTO emails (email, submitted_at, source)
+        VALUES (?, ?, ?)
+      `,
+      )
+        .bind(
+          email.toLowerCase().trim(),
+          new Date().toISOString(),
+          request.headers.get("referer") ?? "unknown",
+        )
+        .run();
 
       return new Response(JSON.stringify({ success: true }), {
         status: 200,

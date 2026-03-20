@@ -2,6 +2,7 @@ name = "dodo-email-collector"
 main = "index.ts"
 compatibility_date = "2024-01-01"
 
-[[r2_buckets]]
-binding = "EMAIL_BUCKET"
-bucket_name = "dodo-emails"
+[[d1_databases]]
+binding = "DB"
+database_name = "dodo-waitlist"
+database_id = "c2244881-1411-47f3-bad8-ac64a385579b"
