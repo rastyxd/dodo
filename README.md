@@ -1,73 +1,57 @@
-# React + TypeScript + Vite
+# 🐦 Dodo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Less think, more do.
 
-Currently, two official plugins are available:
+Dodo quietly tracks the life stuff you keep forgetting — GP checkups, bill splits, ID renewals, lease dates. You tap what applies to your life once, and it handles the rest in the background. No setup, no system, no guilt. Just a gentle nudge when something actually needs you.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+**Free forever. No account needed.**
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## What it does
 
-## Expanding the ESLint configuration
+Most reminder apps ask you to think. Dodo doesn't. You tap what's part of your life — it figures out the timing, tracks the frequency, and shows up only when something actually needs your attention.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- 🏥 GP checkups & dentist visits
+- 🪪 ID and passport renewals
+- 💸 Bills, subscriptions, and splits
+- 🔑 Lease renewals and tenant inspections
+- 📦 Return windows and trial endings
+- ➕ Anything else you add yourself
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- **Vite** — build tooling
+- **React 19** — UI
+- **TypeScript** — type safety
+- **Tailwind CSS v4** — styling tokens
+- **Motion** — animations
+
+---
+
+## Project structure
+
+```
+src/
+├── App.tsx                 # Root component, blob decorations
+├── main.tsx                # Entry point
+├── index.css               # Tailwind v4 tokens + base styles
+└── components/
+    ├── Nav.tsx             # Sticky nav with wobbling logo
+    ├── Hero.tsx            # Headline + email form + phone mockup
+    ├── PhoneMockup.tsx     # Animated phone UI
+    ├── EmailForm.tsx       # Waitlist signup form
+    ├── HowItWorks.tsx      # 3-step explainer
+    ├── Moments.tsx         # What Dodo tracks (dark section)
+    ├── Features.tsx        # Why Dodo (feature cards)
+    ├── CTA.tsx             # Bottom CTA with email form
+    └── Footer.tsx          # Footer
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## License
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Dodo is a product by [Rasty](https://rasty.uk) — all rights reserved © 2026.
